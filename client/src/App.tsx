@@ -9,7 +9,9 @@ function App() {
   const activeParamsRef = useRef<ChatBotParams | null>(null);
 
   useEffect(() => {
-    const wsUrl = 'ws://localhost:8000/askAI';
+    let wsUrl = 'ws://localhost:8000/askAI';
+    if (window.location.hostname !== '127.0.0.1')
+      wsUrl = `wss://${window.location.hostname}/askAI`;
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
 
