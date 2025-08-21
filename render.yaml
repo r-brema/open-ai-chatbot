@@ -1,0 +1,19 @@
+services:
+  # Backend WebSocket API
+  - type: web
+    name: chatbot-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    autoDeploy: true
+
+  # Frontend (React)
+  - type: web
+    name: chatbot-client
+    env: node
+    rootDir: client
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build
+    plan: free
+    autoDeploy: true

@@ -9,12 +9,14 @@ function App() {
   const activeParamsRef = useRef<ChatBotParams | null>(null);
 
   useEffect(() => {
-    let wsUrl = 'ws://localhost:8000/askAI';
-    if (window.location.hostname !== '127.0.0.1')
+    let wsUrl = 'ws://simple-openai-chat-bot.onrender.com/askAI';
+    console.log(window.location.hostname);
+    if (window.location.hostname !== 'localhost')
       wsUrl = `wss://${window.location.hostname}/askAI`;
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
 
+    console.log('wsurl: ' + wsUrl);
     // --- WebSocket lifecycle events ---
     ws.addEventListener('open', () => console.log('✅ WebSocket connected'));
     ws.addEventListener('close', () =>
@@ -42,7 +44,7 @@ function App() {
       aiResponseToStream += token;
 
       if (activeParamsRef.current) {
-        // 👇 stream as tokens arrive, one by one
+        //stream as tokens arrive, one by one
         await activeParamsRef.current.streamMessage(aiResponseToStream);
       }
     };
