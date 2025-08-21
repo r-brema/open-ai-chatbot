@@ -28,7 +28,7 @@ project-root/
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/medbot.git
+git clone https://github.com/r-brema/open-ai-chatbot.git
 cd medbot
 
 **2. Backend Setup****
@@ -86,7 +86,7 @@ git add .
 git commit -m "Initial commit - MedBot WebSocket streaming chatbot"
 
 # Add remote
-git remote add origin https://github.com/your-username/medbot.git
+git remote add origin https://github.com/r-brema/open-ai-chatbot.git
 
 # Push
 git push -u origin main
