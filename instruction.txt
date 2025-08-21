@@ -1,0 +1,31 @@
+Server Side:
+************
+
+1. move to backend folder and then create and activate virtual environment
+
+python -m venv venv        # create virtual environment
+source venv/bin/activate   # activate virutal environement on macOS/Linux
+venv\Scripts\activate      # activate virutal environement  on Windows
+
+
+2. To install all the dependencies listed in a requirements.txt file, use the following command in your terminal:
+cmd: pip install -r requirements.txt
+
+or you can also install it one by one 
+1. Install the OpenAI SDK for python with pip
+cmd: pip install openai
+2. install fastapi 
+cmd: pip install fastapi uvicorn python-multipart
+3. install websocket for streaming message
+cmd: pip install websockets
+
+
+execute the server with the cmd: uvicorn main:app --reload
+
+Client Side:
+************
+run npm install command to install the package
+execute the client side with the cmd: npm run dev
+
+
+
